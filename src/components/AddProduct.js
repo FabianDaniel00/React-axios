@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { loadProducts } from "./GetProducts.js";
+import host_port from "./apiConfig.js";
 
 const AddProduct = () => {
   const [pName, setPName] = useState(String);
@@ -13,7 +14,7 @@ const AddProduct = () => {
     event.preventDefault();
     setProductLoading(true);
     axios
-      .post("http://localhost:4000/products/add-product", {
+      .post(`http://${host_port}/products/add-product`, {
         pName: pName,
         pPrice: pPrice,
         pDescription: pDescription,

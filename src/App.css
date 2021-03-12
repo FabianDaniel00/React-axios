@@ -2,6 +2,15 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.forms {
+  position: sticky;
+  top: 0;
+  margin: 20px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .product {
@@ -29,4 +38,10 @@
 
 .delete:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1196px) {
+  .forms {
+    position: static;
+  }
 }

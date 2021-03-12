@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { loadProducts } from "./GetProducts.js";
+import host_port from "./apiConfig.js";
 
 let fillUpdateForm = () => {};
 
@@ -18,7 +19,7 @@ const UpdateProduct = () => {
     event.preventDefault();
     setProductLoading(true);
     axios
-      .put("http://localhost:4000/products/update-product", {
+      .put(`http://${host_port}/products/update-product`, {
         pId: pId,
         pName: pName,
         pPrice: pPrice,

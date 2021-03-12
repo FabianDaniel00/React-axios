@@ -6,14 +6,7 @@ import { UpdateProduct } from "./components/UpdateProduct";
 function App() {
   return (
     <div className="App">
-      <div
-        style={{
-          position: "sticky",
-          top: "0",
-          margin: "20px",
-          maxWidth: "500px",
-        }}
-      >
+      <div className="forms">
         <AddProduct />
         <UpdateProduct />
       </div>

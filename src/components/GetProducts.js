@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { fillUpdateForm } from "./UpdateProduct.js";
 import DeleteProduct from "./DeleteProduct.js";
+import host_port from "./apiConfig.js";
 
 let loadProducts = () => {};
 
@@ -16,7 +17,7 @@ const GetProducts = () => {
 
   loadProducts = () => {
     axios
-      .get("http://localhost:4000/products")
+      .get(`http://${host_port}/products`)
       .then((response) => {
         setProducts(response.data);
         setProductsLoading(false);
