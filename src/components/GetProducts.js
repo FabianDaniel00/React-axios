@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { fillUpdateForm } from "./UpdateProduct.js";
 import DeleteProduct from "./DeleteProduct.js";
-import host_port from "./apiConfig.js";
 
 let loadProducts = () => {};
 
@@ -13,11 +12,15 @@ const GetProducts = () => {
 
   useEffect(() => {
     loadProducts();
+
+    console.log(process.env);
   }, []);
 
   loadProducts = () => {
     axios
-      .get(`http://${host_port}/products`)
+      .get(
+        `http://${process.env.REACT_APP_HOST}${process.env.REACT_APP_PORT}/products`
+      )
       .then((response) => {
         setProducts(response.data);
         setProductsLoading(false);

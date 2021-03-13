@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { loadProducts } from "./GetProducts.js";
-import host_port from "./apiConfig.js";
 
 const DeleteProduct = ({ pId, pName }) => {
   const [productLoading, setProductLoading] = useState(false);
@@ -15,9 +14,12 @@ const DeleteProduct = ({ pId, pName }) => {
     if (c) {
       setProductLoading(true);
       axios
-        .delete(`http://${host_port}/products/delete-product`, {
-          data: { pId: pId, pName: pName },
-        })
+        .delete(
+          `http://${process.env.REACT_APP_HOST}${process.env.REACT_APP_PORT}/products/delete-product`,
+          {
+            data: { pId: pId, pName: pName },
+          }
+        )
         .then((response) => {
           loadProducts();
           setProductLoading(false);
